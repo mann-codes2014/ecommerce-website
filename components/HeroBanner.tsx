@@ -47,6 +47,7 @@ const StyledDesktopBanner = styled.div`
     }
   }
 `
+
 const StyledButton = styled.button`
   background: #FB2E86;
   border-radius: 2px;
@@ -66,22 +67,24 @@ export const HeroBanner = ({data}: any) => {
     const imageUrl = urLFor(image).width(300).url();
 
     return (
-        <StyledDesktopBanner>
-            <div>
-                <Image src={imageUrl} width={300} height={300} alt="lamp"/>
-            </div>
-            <div>
-                <p className="summary">{summary}</p>
-                <h1 className="heading">{heading}</h1>
-                <p className="description">{desc}</p>
-                <StyledButton>{buttonText}</StyledButton>
-            </div>
-            <div>
-                <div className="circle1">
-                    <Image src={productImageUrl} width={400} height={400} alt="banner product"/>
+        <div>
+            <StyledDesktopBanner>
+                <div>
+                    <Image src={imageUrl} width={300} height={300} alt="lamp"/>
                 </div>
-            </div>
-        </StyledDesktopBanner>
+                <div>
+                    <p className="summary">{summary}</p>
+                    <h1 className="heading">{heading}</h1>
+                    <p className="description">{desc}</p>
+                    <StyledButton>{buttonText}</StyledButton>
+                </div>
+                <div>
+                    <div className="circle1">
+                        <Image src={productImageUrl} width={400} height={400} alt="banner product"/>
+                    </div>
+                </div>
+            </StyledDesktopBanner>
+        </div>
     );
 };
 

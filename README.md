@@ -5,7 +5,7 @@ In order to challenge myself, I will not follow exactly same path as the origina
 ## Extensions
 1. Typescript
 2. [Design](https://www.figma.com/file/SK9tes6tDh9GXieyJPWpxT/Project---Hekto?node-id=87%3A622)
-
+3. Styled Components
 ## Getting Started
 
 First, run the development server:

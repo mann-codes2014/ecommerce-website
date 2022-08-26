@@ -1,6 +1,8 @@
 import type {GetServerSideProps} from 'next'
 import {HeroBanner} from "../components";
 import {client} from "../lib/client";
+import Head from "next/head";
+import FeaturedProducts from "../components/FeaturedProducts";
 
 export const getServerSideProps: GetServerSideProps = async () => {
     const productsQuery = `*[_type == "product"]`
@@ -19,11 +21,14 @@ type HomePageProps = {
 const Home = ({productsData, bannerData}: HomePageProps) => {
     return (
         <>
+            <Head>
+                <title>Hekto- Home</title>
+            </Head>
+
             <HeroBanner data={bannerData}/>
-            {/*<div className="products-heading">*/}
-            {/*    <h2>Best Selling Products</h2>*/}
-            {/*    <p>Speakers of many variations</p>*/}
-            {/*</div>*/}
+            <div style={{padding: '5% 15%'}}>
+                <FeaturedProducts products={productsData}/>
+            </div>
             {/*<div className="products-container">*/}
             {/*    {['Product 1', 'Product 2'].map(product => product)}*/}
             {/*</div>*/}
