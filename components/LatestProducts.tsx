@@ -107,7 +107,7 @@ const Product = ({product}: any) => {
         </div>
     </StyledProduct>)
 }
-const LatestProducts = ({products}: any) => {
+export const LatestProducts = ({products}: any) => {
 
     return (
         <div>
@@ -120,5 +120,3 @@ const LatestProducts = ({products}: any) => {
         </div>
     );
 };
-
-export default LatestProducts;

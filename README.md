@@ -6,6 +6,12 @@ In order to challenge myself, I will not follow exactly same path as the origina
 1. Typescript
 2. [Design](https://www.figma.com/file/SK9tes6tDh9GXieyJPWpxT/Project---Hekto?node-id=87%3A622)
 3. Styled Components
+
+## Known Issues
+1. Responsiveness
+2. Accessibility
+3. Localization
+
 ## Getting Started
 
 First, run the development server:

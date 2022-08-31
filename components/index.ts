@@ -1,3 +1,6 @@
 export * from './HeroBanner'
 export * from './Layout'
 export * from './MediaContextProvider'
+export * from './FeaturedProducts'
+export * from './LatestProducts'
+export * from './DiscountBanner'

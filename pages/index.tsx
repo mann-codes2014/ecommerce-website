@@ -1,9 +1,7 @@
 import type {GetServerSideProps} from 'next'
-import {HeroBanner} from "../components";
+import {DiscountBanner, FeaturedProducts, HeroBanner, LatestProducts} from "../components";
 import {client} from "../lib/client";
 import Head from "next/head";
-import FeaturedProducts from "../components/FeaturedProducts";
-import LatestProducts from "../components/LatestProducts";
 
 export const getServerSideProps: GetServerSideProps = async () => {
     const productsQuery = `*[_type == "product"]`
@@ -14,16 +12,20 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
     const latestProductsQuery = `*[_type == "latestProduct"]`
     const latestProductsData = await client.fetch(latestProductsQuery);
+
+    const discountQuery = `*[_type == "discount"]`
+    const discountData = await client.fetch(discountQuery);
     return {
-        props: {productsData, bannerData, latestProductsData}
+        props: {productsData, bannerData, latestProductsData,discountData}
     }
 }
 type HomePageProps = {
     productsData: [];
     bannerData: [];
-    latestProductsData: []
+    latestProductsData: [];
+    discountData:[]
 }
-const Home = ({productsData, bannerData, latestProductsData}: HomePageProps) => {
+const Home = ({productsData, bannerData, latestProductsData,discountData}: HomePageProps) => {
     return (
         <>
             <Head>
@@ -37,6 +39,10 @@ const Home = ({productsData, bannerData, latestProductsData}: HomePageProps) => 
             <div style={{padding: '5% 15%'}}>
                 <LatestProducts products={latestProductsData}/>
             </div>
+            <div style={{padding: '5% 15%'}}>
+                <DiscountBanner data={discountData}/>
+            </div>
+
         </>
     )
 }

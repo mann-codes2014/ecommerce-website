@@ -163,7 +163,7 @@ const Product = ({product}: any) => {
         </div>
     </StyledProduct>)
 }
-const FeaturedProducts = ({products}: any) => {
+export const FeaturedProducts = ({products}: any) => {
 
     return (
         <div>
@@ -177,4 +177,3 @@ const FeaturedProducts = ({products}: any) => {
     );
 };
 
-export default FeaturedProducts;
