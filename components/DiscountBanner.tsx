@@ -2,6 +2,7 @@ import React from 'react';
 import styled from "@emotion/styled";
 import {urLFor} from "../lib/client";
 import Image from 'next/image'
+import {Button} from "./Button";
 
 const StyledDesktopBanner = styled.div`
   display: grid;
@@ -66,20 +67,6 @@ const StyledDesktopBanner = styled.div`
     left: 100px;
   }
 `
-
-const StyledButton = styled.button`
-  background: #FB2E86;
-  border-radius: 2px;
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 17px;
-  line-height: 20px;
-  letter-spacing: 0.02em;
-  color: #FFFFFF;
-  border: 0;
-  padding: 16px 40px;
-`
-
-
 export const DiscountBanner = ({data}: any) => {
     const {heading, productImage, productName, productDesc, productQualities, buttonText} = data[0] || {};
     const productImageUrl = urLFor(productImage).url();
@@ -98,7 +85,7 @@ export const DiscountBanner = ({data}: any) => {
                                    alt="Check Icon"/>
                             {quality}</span>)}
                     </div>
-                    <StyledButton>{buttonText}</StyledButton>
+                    <Button label={buttonText} primary size="large"/>
                 </div>
                 <div style={{position: 'relative', top: 0, left: 0}}>
                     <div className="circle">

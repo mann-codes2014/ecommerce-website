@@ -2,6 +2,7 @@ import React from 'react';
 import styled from "@emotion/styled";
 import {urLFor} from "../lib/client";
 import Image from 'next/image'
+import {Button} from "./Button";
 
 const StyledContainer = styled.div`
   display: grid;
@@ -123,17 +124,6 @@ const StyledAction = styled.div`
     border-radius: 50%;
   }
 `
-const StyledButton = styled.button`
-  background: var(--green);
-  border-radius: 2px;
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 12px;
-  line-height: 14px;
-  letter-spacing: 0.02em;
-  color: #FFFFFF;
-  border: 0;
-  padding: 7px;
-`
 const Product = ({product}: any) => {
     const {image} = product || {};
     const imageSrc = urLFor(image[0]).url();
@@ -153,7 +143,7 @@ const Product = ({product}: any) => {
                 </StyledAction>
             </div>
             <div className="details-button-overlay">
-                <StyledButton>View Details</StyledButton>
+                <Button label="View Details" primary size="small"/>
             </div>
         </div>
         <div className="text-container">

@@ -1,5 +1,5 @@
 import type {GetServerSideProps} from 'next'
-import {DiscountBanner, FeaturedProducts, HeroBanner, LatestProducts} from "../components";
+import {DiscountBanner, FeaturedProducts, Footer, HeroBanner, LatestProducts} from "../components";
 import {client} from "../lib/client";
 import Head from "next/head";
 
@@ -42,6 +42,7 @@ const Home = ({productsData, bannerData, latestProductsData,discountData}: HomeP
             <div style={{padding: '5% 15%'}}>
                 <DiscountBanner data={discountData}/>
             </div>
+            <Footer/>
 
         </>
     )

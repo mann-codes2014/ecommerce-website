@@ -2,6 +2,7 @@ import React from 'react';
 import styled from "@emotion/styled";
 import {urLFor} from "../lib/client";
 import Image from 'next/image'
+import {Button} from "./Button";
 
 const StyledDesktopBanner = styled.div`
   background-color: #F2F0FF;
@@ -47,20 +48,6 @@ const StyledDesktopBanner = styled.div`
     }
   }
 `
-
-const StyledButton = styled.button`
-  background: #FB2E86;
-  border-radius: 2px;
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 17px;
-  line-height: 20px;
-  letter-spacing: 0.02em;
-  color: #FFFFFF;
-  border: 0;
-  padding: 16px 40px;
-`
-
-
 export const HeroBanner = ({data}: any) => {
     const {image, productImage, summary, heading, desc, buttonText} = data[0] || {};
     const productImageUrl = urLFor(productImage).width(400).url();
@@ -76,7 +63,7 @@ export const HeroBanner = ({data}: any) => {
                     <p className="summary">{summary}</p>
                     <h1 className="heading">{heading}</h1>
                     <p className="description">{desc}</p>
-                    <StyledButton>{buttonText}</StyledButton>
+                    <Button label={buttonText} primary size="large"/>
                 </div>
                 <div>
                     <div className="circle1">
