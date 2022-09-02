@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
+import {Footer, Header} from "./index";
 
-const Layout = () => {
+
+export const Layout = ({children}: { children: ReactNode }) => {
     return (
-        <div>
-            
-        </div>
+        <>
+            <Header/>
+            <main>{children}</main>
+            <Footer/>
+        </>
     );
 };
-
-export default Layout;
