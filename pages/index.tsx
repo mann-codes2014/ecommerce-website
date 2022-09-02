@@ -1,5 +1,5 @@
 import type {GetServerSideProps} from 'next'
-import {DiscountBanner, FeaturedProducts, Footer, HeroBanner, LatestProducts} from "../components";
+import {DiscountBanner, FeaturedProducts, Footer, Header, HeroBanner, LatestProducts} from "../components";
 import {client} from "../lib/client";
 import Head from "next/head";
 
@@ -16,22 +16,22 @@ export const getServerSideProps: GetServerSideProps = async () => {
     const discountQuery = `*[_type == "discount"]`
     const discountData = await client.fetch(discountQuery);
     return {
-        props: {productsData, bannerData, latestProductsData,discountData}
+        props: {productsData, bannerData, latestProductsData, discountData}
     }
 }
 type HomePageProps = {
     productsData: [];
     bannerData: [];
     latestProductsData: [];
-    discountData:[]
+    discountData: []
 }
-const Home = ({productsData, bannerData, latestProductsData,discountData}: HomePageProps) => {
+const Home = ({productsData, bannerData, latestProductsData, discountData}: HomePageProps) => {
     return (
         <>
             <Head>
                 <title>Hekto- Home</title>
             </Head>
-
+            <Header/>
             <HeroBanner data={bannerData}/>
             <div style={{padding: '5% 15%'}}>
                 <FeaturedProducts products={productsData}/>

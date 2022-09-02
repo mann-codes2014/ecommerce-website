@@ -85,7 +85,9 @@ export const DiscountBanner = ({data}: any) => {
                                    alt="Check Icon"/>
                             {quality}</span>)}
                     </div>
-                    <Button label={buttonText} primary size="large"/>
+                    <Button primary size="large">
+                        {buttonText}
+                    </Button>
                 </div>
                 <div style={{position: 'relative', top: 0, left: 0}}>
                     <div className="circle">

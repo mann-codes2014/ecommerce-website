@@ -63,7 +63,9 @@ export const HeroBanner = ({data}: any) => {
                     <p className="summary">{summary}</p>
                     <h1 className="heading">{heading}</h1>
                     <p className="description">{desc}</p>
-                    <Button label={buttonText} primary size="large"/>
+                    <Button primary size="large">
+                        {buttonText}
+                    </Button>
                 </div>
                 <div>
                     <div className="circle1">

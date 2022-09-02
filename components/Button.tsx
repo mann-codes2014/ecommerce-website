@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 import styled from '@emotion/styled'
 
 interface ButtonProps {
     primary?: boolean;
     size?: 'small' | 'medium' | 'large';
-    label: string;
     onClick?: () => void;
+    children: ReactNode
 }
 
 interface StyledButtonProps {
@@ -34,13 +34,14 @@ const StyledButton = styled.button<StyledButtonProps>`
     transition: background-color 350ms;
   }
 `
-export const Button = ({
-                           primary = false,
-                           size = 'medium',
-                           label,
-                           onClick = () => {
-                           }
-                       }: ButtonProps) => {
+export const Button = (props: ButtonProps) => {
+    const {
+        primary = false,
+        size = 'medium',
+        onClick = () => {
+        },
+        children
+    } = props;
     return (
         <StyledButton
             type="button"
@@ -48,7 +49,7 @@ export const Button = ({
             size={size}
             onClick={onClick}
         >
-            {label}
+            {children}
         </StyledButton>
     );
 };

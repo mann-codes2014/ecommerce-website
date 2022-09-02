@@ -1,8 +1,7 @@
 import React, {ReactNode} from 'react';
 import styled from "@emotion/styled";
 import Image from "next/image";
-import Input from "./Input";
-
+import {Input} from './index'
 const StyledDesktopFooter = styled.div`
   background-color: #F2F0FF;
   display: grid;
@@ -40,7 +39,7 @@ const LinksGroup = ({heading, children}: LinkGroupProps) => <StyledLinksContaine
     <strong className="heading">{heading}</strong>
     {children}
 </StyledLinksContainer>
-const FooterLinks = {
+export const FooterLinks = {
     contact: [
         {label: 'Github', link: 'https://github.com/mann-codes2014'},
         {label: 'mann.codes2014@gmail.com', link: 'mailto:mann.codes2014@gmail.com'},

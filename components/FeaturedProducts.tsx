@@ -143,7 +143,9 @@ const Product = ({product}: any) => {
                 </StyledAction>
             </div>
             <div className="details-button-overlay">
-                <Button label="View Details" primary size="small"/>
+                <Button  primary size="small">
+                    View Details
+                </Button>
             </div>
         </div>
         <div className="text-container">
