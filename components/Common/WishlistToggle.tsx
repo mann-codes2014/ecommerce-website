@@ -20,10 +20,12 @@ const StyledAction = styled.button`
   }
 `
 export const WishlistToggle = ({filled}: { filled: boolean }) => {
-    const [isFilled, setIsFilled] = useState(filled);
+    const [hover, setHover] = useState(filled);
+
     return (
-        <StyledAction>
-            {isFilled ? <BsHeartFill color={'#FB2E86'}/> : <BsHeart/>}
+        <StyledAction onMouseEnter={() => setHover(!filled)}
+                      onMouseLeave={() => setHover(filled)}>
+            {hover ? <BsHeartFill color={'#FB2E86'}/> : <BsHeart/>}
         </StyledAction>
     );
 };

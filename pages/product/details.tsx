@@ -13,6 +13,45 @@ const StyledContainer = styled.div`
   border-radius: 2px;
   padding: 10px;
 `
+const StyledGallery = styled.div`
+  display: grid;
+  grid-template-areas: 'slide-1 main main main'
+                        'slide-2 main main main'
+                        'slide-3 main main main';
+  gap: 5px;
+
+  .slide-1 {
+    grid-area: slide-1;
+  }
+
+  .slide-2 {
+    grid-area: slide-2;
+
+  }
+
+  .slide-3 {
+    grid-area: slide-3;
+  }
+
+  .main {
+    grid-area: main
+  }
+`
+type StyledImageCardProps = {
+    image: string;
+    width: string;
+    height: string;
+}
+const StyledImageCard = styled.div<StyledImageCardProps>`
+  border-radius: 3px;
+  background-image: url(${props => (props.image)});
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: ${props => (props.width)};
+  height: ${props => (props.height)};
+  object-fit: contain;
+  object-position: center;
+`
 const StyledProductDetails = styled.div`
   display: grid;
   grid-template-columns: 1fr;
@@ -77,6 +116,19 @@ const ProductDetails = () => {
             </Head>
             <div style={{padding: '5%'}}>
                 <StyledContainer>
+                    <StyledGallery>
+                        <StyledImageCard width={'151px'} height={'155px'} className="slide-1"
+                                         image="/images/image3.svg">
+                        </StyledImageCard>
+                        <StyledImageCard width={'151px'} height={'155px'} className="slide-2"
+                                         image="/images/image4.svg">
+                        </StyledImageCard>
+                        <StyledImageCard width={'151px'} height={'155px'} className="slide-3"
+                                         image="/images/image5.svg">
+                        </StyledImageCard>
+                        <StyledImageCard width={'100%'} height={'100%'} className="main" image="/images/image6.svg">
+                        </StyledImageCard>
+                    </StyledGallery>
                     <StyledProductDetails>
                         <h3 className="name">Playwood arm chair</h3>
                         <Rating value={4} totalRatings={22}/>
