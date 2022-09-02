@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "@emotion/styled";
-import {urLFor} from "../lib/client";
+import {urLFor} from "../../lib/client";
 import Image from 'next/image'
 
 const StyledContainer = styled.div`

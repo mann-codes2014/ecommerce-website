@@ -1,7 +1,7 @@
 import React, {ReactNode} from 'react';
 import styled from "@emotion/styled";
 import Image from "next/image";
-import {Input} from './index'
+import {Input} from './Input'
 const StyledDesktopFooter = styled.div`
   background-color: #F2F0FF;
   display: grid;

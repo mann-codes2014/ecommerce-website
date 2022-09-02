@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "@emotion/styled";
 import Image from "next/image";
-import {BorderInput, FooterLinks} from './index'
+import {BorderInput, FooterLinks} from '../index'
 
 const StyledDesktopHeaderStrip = styled.div`
   background-color: #7E33E0;

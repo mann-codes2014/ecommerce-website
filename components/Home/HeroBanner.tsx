@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from "@emotion/styled";
-import {urLFor} from "../lib/client";
+import {urLFor} from "../../lib/client";
 import Image from 'next/image'
-import {Button} from "./Button";
+import {Button} from "../Common/Button";
 
 const StyledDesktopBanner = styled.div`
   background-color: #F2F0FF;
