@@ -3,7 +3,7 @@ import {client} from "../../lib/client";
 import Head from "next/head";
 import styled from "@emotion/styled";
 import {Button, Rating, Tag, WishlistToggle} from "../../components";
-import React from "react";
+import React, {useState} from "react";
 
 const StyledContainer = styled.div`
   display: grid;
@@ -41,8 +41,10 @@ type StyledImageCardProps = {
     image: string;
     width: string;
     height: string;
+    selected?: boolean
 }
 const StyledImageCard = styled.div<StyledImageCardProps>`
+  border: ${props => (props.selected ? '2px solid pink' : 'none')};
   border-radius: 3px;
   background-image: url(${props => (props.image)});
   background-repeat: no-repeat;
@@ -107,8 +109,16 @@ export const getServerSideProps: GetServerSideProps = async () => {
         props: {productsData, bannerData, latestProductsData, discountData}
     }
 }
-
+const ProductImages = [{id: 1, url: '/images/image4.svg'}, {id: 2, url: '/images/image5.svg'}, {
+    id: 3,
+    url: '/images/image6.svg'
+}]
 const ProductDetails = () => {
+    const [currentSlide, setCurrentSlide] = useState(ProductImages[0])
+    const handleChangeSlide = (slideId: number) => {
+        // @ts-ignore
+        setCurrentSlide(ProductImages.find(slide => slide.id === slideId))
+    }
     return (
         <>
             <Head>
@@ -117,16 +127,16 @@ const ProductDetails = () => {
             <div style={{padding: '5%'}}>
                 <StyledContainer>
                     <StyledGallery>
-                        <StyledImageCard width={'151px'} height={'155px'} className="slide-1"
-                                         image="/images/image3.svg">
-                        </StyledImageCard>
-                        <StyledImageCard width={'151px'} height={'155px'} className="slide-2"
-                                         image="/images/image4.svg">
-                        </StyledImageCard>
-                        <StyledImageCard width={'151px'} height={'155px'} className="slide-3"
-                                         image="/images/image5.svg">
-                        </StyledImageCard>
-                        <StyledImageCard width={'100%'} height={'100%'} className="main" image="/images/image6.svg">
+                        {ProductImages.map((slide, index) => <StyledImageCard
+                            onClick={() => handleChangeSlide(slide.id)}
+                            selected={currentSlide.id === slide.id}
+                            key={index} width={'151px'}
+                            height={'155px'}
+                            className={`${slide}-${index - 1}`}
+                            image={slide.url}>
+                        </StyledImageCard>)}
+
+                        <StyledImageCard width={'100%'} height={'100%'} className="main" image={currentSlide.url}>
                         </StyledImageCard>
                     </StyledGallery>
                     <StyledProductDetails>
